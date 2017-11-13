@@ -35,9 +35,6 @@ class ParticleFilter {
 	// Flag, if filter is initialized
 	bool is_initialized;
 	
-	// Vector of weights of all particles
-	std::vector<double> weights;
-	
 public:
 	
 	// Set of current particles
@@ -45,20 +42,20 @@ public:
 
 	// Constructor
 	// @param num_particles Number of particles
-	ParticleFilter() : num_particles(0), is_initialized(false) {}
+	ParticleFilter() : num_particles(10), is_initialized(false) {}
 
 	// Destructor
-	~ParticleFilter() {}
+	~ParticleFilter() = default;
 
 	/**
-	 * init Initializes particle filter by initializing particles to Gaussian
-	 *   distribution around first position and all the weights to 1.
-	 * @param x Initial x position [m] (simulated estimate from GPS)
-	 * @param y Initial y position [m]
-	 * @param theta Initial orientation [rad]
-	 * @param std[] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m]
-	 *   standard deviation of yaw [rad]]
-	 */
+     * init Initializes particle filter by initializing particles to Gaussian
+     *   distribution around first position and all the weights to 1.
+     * @param x Initial x position [m] (simulated estimate from GPS)
+     * @param y Initial y position [m]
+     * @param theta Initial orientation [rad]
+     * @param std[] Array of dimension 3 [standard deviation of x [m], standard deviation of y [m]
+     *   standard deviation of yaw [rad]]
+     */
 	void init(double x, double y, double theta, double std[]);
 
 	/**
